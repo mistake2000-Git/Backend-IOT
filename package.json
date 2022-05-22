@@ -1,0 +1,31 @@
+{
+  "name": "final-cloud-computing",
+  "version": "1.0.0",
+  "description": "This is demo website of Cloud Computing Subject",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "nodemon index",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mistake2000-Git/Final-Cloud-Computing.git"
+  },
+  "author": "Tan Loc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mistake2000-Git/Final-Cloud-Computing/issues"
+  },
+  "homepage": "https://github.com/mistake2000-Git/Final-Cloud-Computing#readme",
+  "dependencies": {
+    "ajax": "0.0.4",
+    "argon2": "^0.28.5",
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.3.3",
+    "nodemon": "^2.0.15"
+  }
+}

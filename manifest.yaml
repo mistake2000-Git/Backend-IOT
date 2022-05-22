@@ -1,0 +1,5 @@
+---
+applications:
+ - name: Final Cloud Computing
+   random-route: true
+   memory: 256M
