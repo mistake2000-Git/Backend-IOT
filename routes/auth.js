@@ -38,5 +38,27 @@ router.post('/login',async function login(req,res)
 		res.status(500).json({ success: false, message: 'Internal server error' })
     }
 })
-
+router.post('/register',async(req,res)=>{
+    const {Name,userName,password} = req.body
+    try
+    {
+        const checkUser = await user.findOne({userName})
+        if(checkUser)
+        {
+            res.json({success:false,message:"User name is existed"})
+        }
+        else
+        {
+            const newPassword = await argon2.hash(password)
+            const User = new user({Name,userName,password:newPassword})
+            await User.save()
+            res.json({success:true,message:"Create user successfully!"})
+        }
+    }
+    catch(err)
+    {
+        console.log(err.message)
+        res.status(400).json({success:false,message:"Internal error!"})
+    }
+})
 module.exports= router

@@ -3,8 +3,10 @@ const router = express.Router();
 const sensor = require('../model/sensorValue')
 const verifyToken = require('../middleware/auth')
 var value
+var deviceState = false
 router.post('/', async(req,res)=>{
     value = req.body
+    deviceState = true
     console.log(value)
     const {deviceID,device_Name} = req.body
     try{
@@ -20,7 +22,6 @@ router.post('/', async(req,res)=>{
         console.log(err)
         res.status(400).json({success:false})
     }
-
 })
 router.get('/getAll',verifyToken,async(req,res)=>{
     const sensorValues = await sensor.find()
@@ -28,7 +29,8 @@ router.get('/getAll',verifyToken,async(req,res)=>{
 })
 
 router.get('/',async(req,res)=>{
-    res.json(value)
+    res.json({value,state:deviceState})
+    deviceState= false
 })
 
 module.exports= router
